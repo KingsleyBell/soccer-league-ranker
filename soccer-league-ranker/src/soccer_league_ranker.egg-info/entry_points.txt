@@ -1,0 +1,3 @@
+[console_scripts]
+ranker = ranker.main:run
+

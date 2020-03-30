@@ -1,8 +1,0 @@
-setup.py
-src/ranker/__init__.py
-src/ranker/main.py
-src/soccer_league_ranker.egg-info/PKG-INFO
-src/soccer_league_ranker.egg-info/SOURCES.txt
-src/soccer_league_ranker.egg-info/dependency_links.txt
-src/soccer_league_ranker.egg-info/entry_points.txt
-src/soccer_league_ranker.egg-info/top_level.txt

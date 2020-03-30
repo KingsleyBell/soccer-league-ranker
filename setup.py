@@ -8,13 +8,13 @@ setup(
     maintainer='https://github.com/Kingsleybell',
     license='MIT',
     url='https://github.com/Kingsleybell/soccer-league-ranker',
-    package_dir={'': 'src'},
+    package_dir={'': 'ranker'},
     include_package_data=True,
-    packages=find_packages('src'),
+    packages=find_packages('ranker'),
     install_requires=[],
     entry_points={
         'console_scripts': [
-            'ranker=ranker.main:run'
+            'ranker=main:run'
         ]
     }
 )

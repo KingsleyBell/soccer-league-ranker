@@ -3,3 +3,6 @@
 .idea
 venv/
 *__pycache__
+
+## Project pip egg files
+ranker/soccer_league_ranker.egg-info/

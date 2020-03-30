@@ -71,7 +71,9 @@ def run():
         'Soccer League Ranker. A handy ranking table calculator.'
     ))
 
-    parser.add_argument('stdin', help='Std input of games results', nargs='?', default=None)
+    parser.add_argument(
+        'stdin', help='Stdin input of games results (if -ifile not used)', nargs='?', default=None
+    )
     parser.add_argument('-ifile', help='Path to input file')
     parser.add_argument('-ofile', help='Path to output file')
 

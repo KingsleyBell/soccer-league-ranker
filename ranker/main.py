@@ -21,13 +21,48 @@ def get_points(team1_score, team2_score):
 
 
 def calculate_scores(match_results):
-    """Calculate soccer team scores given match results"""
-    return match_results
+    """Calculate soccer team scores from match results"""
+    results_list = list(filter(None, match_results.split('\n')))
+    scores = {}
+
+    for result in results_list:
+        team1, team2 = result.split(',')
+
+        team1_name, team1_score = get_team_name_and_score(team1)
+        team2_name, team2_score = get_team_name_and_score(team2)
+
+        team1_points, team2_points = get_points(team1_score, team2_score)
+
+        # Add points to scores dict
+        scores[team1_name] = scores.get(team1_name, 0) + team1_points
+        scores[team2_name] = scores.get(team2_name, 0) + team2_points
+
+    return scores
 
 
 def get_ranking_table(scores):
-    """Calculate soccer ranking table given team scores"""
-    return scores
+    """Calculate soccer ranking table from team scores"""
+    output_str_list = []
+    sorted_scores = sorted(scores.items(), key=lambda x: (-x[1], x[0].lower()))
+
+    previous_score = -1
+    current_place = 0
+    place_plus = 0
+    for score in sorted_scores:
+        team_name = score[0]
+        team_score = score[1]
+        pts_plural = 's' if team_score != 1 else ''
+
+        if team_score == previous_score:
+            place_plus += 1
+        else:
+            current_place += place_plus + 1
+            place_plus = 0
+
+        previous_score = team_score
+        output_str_list.append(f'{current_place}. {team_name}, {team_score} pt{pts_plural}')
+
+    return '\n'.join(output_str_list)
 
 
 def run():

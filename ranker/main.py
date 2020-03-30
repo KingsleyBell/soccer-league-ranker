@@ -2,7 +2,7 @@ import argparse
 
 
 def get_team_name_and_score(team_name_score):
-    """Return team name and score from match score string"""
+    """Parse team name and score from match score string"""
     team_split = team_name_score.split(' ')
     team_score = int(team_split[-1])
     team_name = ' '.join(team_split[:-1]).strip()
@@ -11,6 +11,7 @@ def get_team_name_and_score(team_name_score):
 
 
 def get_points(team1_score, team2_score):
+    """Get team points from on match score"""
     if team1_score > team2_score:
         return 3, 0
     elif team2_score > team1_score:
@@ -30,6 +31,7 @@ def get_ranking_table(scores):
 
 
 def run():
+    """Main CLI tool method"""
     parser = argparse.ArgumentParser(epilog=(
         'Soccer League Ranker. A handy ranking table calculator.'
     ))
